@@ -13,8 +13,8 @@ export const corsHeaders = {
 }
 
 const supabaseClient = createClient(
-	Deno.env.get(Supabase_Project_URL),
-	Deno.env.get(Supabase_API_Key)
+	Deno.env.get("Supabase_Project_URL"),
+	Deno.env.get("Supabase_API_Key")
 )
 
 serve(async (req) => {
@@ -30,7 +30,7 @@ serve(async (req) => {
 	const input = query.replace(/\n/g, " ")
 	console.log(input)
 	const openai = new OpenAI({
-		apiKey: Deno.env.get(openai_key),
+		apiKey: Deno.env.get("openai_key"),
 	})
 
 	// Generate a one-time embedding for the query itself
@@ -84,7 +84,7 @@ serve(async (req) => {
     Question: """
     ${query}
     """
-    Answer as simple text:
+    Answer as simple text within few sentences:
   `
 
 
