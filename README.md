@@ -16,7 +16,7 @@ git clone git@github.com:thorwebdev/langchain-chatbot-demo.git
 2. Install dependencies
 
 ```bash
-cd langchain-chatbot-demo
+cd CustomDataAIChatBot
 npm install
 ```
 
@@ -29,9 +29,7 @@ supabase start
 5. Create a `.env` file in the root directory of the project and add your API keys:
 
 ```
-OPENAI_API_KEY=...
-NEXT_PUBLIC_SUPABASE_URL=...
-NEXT_PUBLIC_SUPABASE_ANON_KEY=...
-SUPABASE_SERVICE_ROLE_KEY=...
-API_ROOT="http://localhost:3000"
+Supabase_Project_URL="YOUR SUPABASE KEY"
+Supabase_API_Key="YOUR SUPABASE API KEY"
+openai_key="YOUR OPENAI KEY"    
 ```
