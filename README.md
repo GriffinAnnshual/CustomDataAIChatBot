@@ -1,16 +1,12 @@
 # CustomDataAIChatBot
 
-To run this demo, you need to have:
-
-1. An OpenAI account. If you don't have one, you can sign up for free at [openai.com](https://www.openai.com).
-2. [Optional] A [Supabase account](https://app.supabase.io/register). Only needed if you want to use the hosted Supabase service.
 
 ## Setup
 
 1. Clone this repository
 
 ```bash
-git clone git@github.com:thorwebdev/langchain-chatbot-demo.git
+https://github.com/GriffinAnnshual/CustomDataAIChatBot.git
 ```
 
 2. Install dependencies
