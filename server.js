@@ -11,59 +11,12 @@ const supabaseClient = createClient(
 )
 
 
-async function generateEmbeddings() {
-	// Initialize OpenAI API
-	const openai = new OpenAI({
-		apiKey: process.env.openai_key,
-	})
+//generate Embeddings
 
-	//Custom data
-	const documents = ["Griffin Annshual is a 18y/o teen who loves programming.",
-	"Griffin's favourite food is Briyani",
-	"Griffin's favourite sport is cricket.",
-	"Griffin is currently pursuing his Computer Science Degree"]
-
-
-	
-	for (const document of documents) {
-		const input = document.replace(/\n/g, "")
-		console.log("This is the input given:"+input)
-		console.log("This is the openai key:" + process.env.openai_key)
-		const embeddingResponse = await openai.embeddings.create({
-			model: "text-embedding-ada-002", // Model that creates our embeddings
-			input,
+async function generateEmbeddings(){
+    const Configuration = new Configuration({
+			apikey: process.env.Openai_ApiKey,
 		})
-
-		console.log(typeof embeddingResponse["data"][0]["embedding"])
-		const list = embeddingResponse["data"][0]["embedding"]
-		const embedding = `[${list.join(",")}]`
-		// Store the embedding and the text in our supabase DB
-      const { data, error } = await supabaseClient.from("documents").insert(
-				{
-					content: document,
-					embedding
-				},
-			)
-			if (error) {
-				console.error("Error inserting data into Supabase:", error)
-			}
-			return
-	}
 }
 
-
-
-async function askQuestion() {
-	const { data, error } = await supabaseClient.functions.invoke(
-		"ask-custom-data",
-		{
-			body: JSON.stringify({ query: "What is Griffin's favourite sport?" }),
-		}
-	)
-	if (error) throw error
-	else{	console.log(data)}
-
-}
-
-askQuestion()
 
