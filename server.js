@@ -11,7 +11,7 @@ const supabaseClient = createClient(
 	process.env.Supabase_API_Key
 )
 
-// generateEmbeddings
+
 async function generateEmbeddings() {
 	// Initialize OpenAI API
 	const openai = new OpenAI({
