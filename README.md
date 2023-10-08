@@ -1,4 +1,4 @@
-# Supabase Langchain Chatbot Demo
+# CustomDataAIChatBot
 
 To run this demo, you need to have:
 
